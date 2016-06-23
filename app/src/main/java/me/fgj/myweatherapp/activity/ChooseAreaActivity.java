@@ -21,7 +21,7 @@ import java.util.List;
 
 import me.fgj.myweatherapp.R;
 import me.fgj.myweatherapp.model.City;
-import me.fgj.myweatherapp.model.CoolWeatherDB;
+import me.fgj.myweatherapp.model.PersonalWeatherDB;
 import me.fgj.myweatherapp.model.County;
 import me.fgj.myweatherapp.model.Province;
 import me.fgj.myweatherapp.util.HttpCallbackListener;
@@ -36,7 +36,7 @@ public class ChooseAreaActivity extends Activity {
 	private TextView titleText;
 	private ListView listView;
 	private ArrayAdapter<String> adapter;
-	private CoolWeatherDB coolWeatherDB;
+	private PersonalWeatherDB personalWeatherDB;
 	private List<String> dataList = new ArrayList<>();
 	private List<Province> provincesList;
 	private List<City> cityList;
@@ -66,7 +66,7 @@ public class ChooseAreaActivity extends Activity {
 		adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,
 				dataList);
 		listView.setAdapter(adapter);
-		coolWeatherDB = CoolWeatherDB.getInstance(this);
+		personalWeatherDB = PersonalWeatherDB.getInstance(this);
 		listView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -91,7 +91,7 @@ public class ChooseAreaActivity extends Activity {
 		queryProvinces();
 	}
 	private void queryProvinces() {
-		provincesList = coolWeatherDB.loadProvinces();
+		provincesList = personalWeatherDB.loadProvinces();
 		if (provincesList.size() > 0) {
 			dataList.clear();
 			for (Province province : provincesList) {
@@ -109,7 +109,7 @@ public class ChooseAreaActivity extends Activity {
 	 * 查询选中省内所有的市，优先从数据库中查询，没有查询到再去服务器上查询
 	 */
 	private void queryCities() {
-		cityList = coolWeatherDB.loadCities(selectedProvince.getId());
+		cityList = personalWeatherDB.loadCities(selectedProvince.getId());
 		if (cityList.size() > 0) {
 			dataList.clear();
 			for (City city : cityList) {
@@ -123,7 +123,7 @@ public class ChooseAreaActivity extends Activity {
 		}
 	}
 	private void queryCounties() {
-		countyList = coolWeatherDB.loadCounties(selectedCity.getId());
+		countyList = personalWeatherDB.loadCounties(selectedCity.getId());
 		if (countyList.size() > 0) {
 			dataList.clear();
 			for (County county : countyList) {
@@ -156,12 +156,12 @@ public class ChooseAreaActivity extends Activity {
 			public void onFinish(String response) {
 				boolean result = false;
 				if ("province".equals(type)) {
-					result = Utility.handleProvincesResponse(coolWeatherDB, response);
+					result = Utility.handleProvincesResponse(personalWeatherDB, response);
 				} else if ("city".equals(type)) {
-					result = Utility.handleCitiesResponse(coolWeatherDB, response,
+					result = Utility.handleCitiesResponse(personalWeatherDB, response,
 							selectedProvince.getId());
 				} else if ("county".equals(type)) {
-					result = Utility.handleCountiesResponse(coolWeatherDB, response,
+					result = Utility.handleCountiesResponse(personalWeatherDB, response,
 							selectedCity.getId());
 				}
 				if (result) {
@@ -197,6 +197,7 @@ public class ChooseAreaActivity extends Activity {
 			}
 		});
 	}
+
 	private void showProgressDialog() {
 		if (progressDialog == null) {
 			progressDialog = new ProgressDialog(this);
@@ -211,6 +212,7 @@ public class ChooseAreaActivity extends Activity {
 			progressDialog.dismiss();
 		}
 	}
+
 	/**
 	 * 捕获Back按键，根据当前的级别来判断，此时应该返回哪里
 	 */

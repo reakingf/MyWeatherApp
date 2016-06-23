@@ -15,7 +15,7 @@ import me.fgj.myweatherapp.util.HttpUtil;
 import me.fgj.myweatherapp.util.Utility;
 
 public class AutoUpdateService extends Service {
-	//��̨����Ƶ��frequency
+	//后台天气自动更新frequency
 	private double frequency;
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -33,10 +33,10 @@ public class AutoUpdateService extends Service {
 		}).start();
 		AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
 		int anHour = (int)(frequency * 60 * 60 * 1000);
-		long tiggerAtTime  = SystemClock.elapsedRealtime() + anHour;
+		long triggerAtTime  = SystemClock.elapsedRealtime() + anHour;
 		Intent i = new Intent(this, AutoUpdateReceiver.class);
 		PendingIntent pi = PendingIntent.getBroadcast(this, 0, i, 0);
-		manager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, tiggerAtTime, pi);
+		manager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerAtTime, pi);
 		return super.onStartCommand(intent, flags, startId);
 	}
 	private void updateWeather() {

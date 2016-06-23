@@ -23,7 +23,7 @@ public class RemoveCityActivity extends Activity implements OnClickListener {
 				remove_city_item, CityCollector.City);
 		removeListView = (ListView) findViewById(R.id.remove_ciy_item);
 		removeListView.setAdapter(adapter);
-		Button cancel = (Button) findViewById(R.id.cancle);
+		Button cancel = (Button) findViewById(R.id.cancel);
 		Button determine = (Button) findViewById(R.id.determine);
 		cancel.setOnClickListener(this);
 		determine.setOnClickListener(this);
@@ -32,15 +32,13 @@ public class RemoveCityActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.cancle:
-			Intent intent = new Intent(RemoveCityActivity.this,
-					ConcernedCityActivity.class);
+		case R.id.cancel:
+			Intent intent = new Intent(RemoveCityActivity.this, ConcernedCityActivity.class);
 			startActivity(intent);
 			finish();
 			break;
 		case R.id.determine:
-			Intent intent2 = new Intent(RemoveCityActivity.this,
-					ConcernedCityActivity.class);
+			Intent intent2 = new Intent(RemoveCityActivity.this, ConcernedCityActivity.class);
 			startActivity(intent2);
 			finish();
 			break;

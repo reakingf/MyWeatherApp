@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">个人天气</string>
     <string name="setting">设置</string>
+    <string name="updateInfo">暂时无法更新</string>
+    <string name="allowUpdate">允许后台自动更新天气</string>
+    <string name="update_opened">您已经开启了后台更新服务</string>
+    <string name="update_closed">您已经关闭了后台更新服务</string>
+    <string name="set_frequency">设置自动更新频率(/h)</string>
+    <string name="half_hour">后台每半小时更新一次</string>
+    <string name="one_hour">后台每小时更新一次</string>
+    <string name="two_hours">后台每两小时更新一次</string>
+    <string name="four_hours">后台每四小时更新一次</string>
+    <string name="eight_hours">后台每八小时更新一次</string>
+    <string name="auto_update">自动更新天气</string>
+    <string name="update_frequency">更新频率</string>
+    <string name="version_update">检查新版本</string>
 </resources>

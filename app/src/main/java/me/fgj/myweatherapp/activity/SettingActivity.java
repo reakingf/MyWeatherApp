@@ -60,7 +60,7 @@ public class SettingActivity extends Activity {
 					setTime();
 					break;
 				case 2:
-					Toast.makeText(SettingActivity.this, "暂时无法更新",
+					Toast.makeText(SettingActivity.this, getString(R.string.updateInfo),
 							Toast.LENGTH_LONG).show();
 					break;
 				default:
@@ -71,7 +71,7 @@ public class SettingActivity extends Activity {
 		});
 	}
 	private void showDialog() {
-		new AlertDialog.Builder(this).setTitle("允许后台自动更新天气").
+		new AlertDialog.Builder(this).setTitle(getString(R.string.allowUpdate)).
 		setItems(yesOrNot,new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -80,14 +80,14 @@ public class SettingActivity extends Activity {
 							Intent intent = new Intent(SettingActivity.this,
 									AutoUpdateService.class);
 							startService(intent);
-							Toast.makeText(SettingActivity.this, "您已经开启了后台更新服务",
+							Toast.makeText(SettingActivity.this, getString(R.string.update_opened),
 									Toast.LENGTH_SHORT).show();
 							break;
 						case 1:
 							Intent intent2 = new Intent(SettingActivity.this,
 									AutoUpdateService.class);
 							stopService(intent2);
-							Toast.makeText(SettingActivity.this, "您已经关闭了后台更新服务",
+							Toast.makeText(SettingActivity.this, getString(R.string.update_closed),
 									Toast.LENGTH_SHORT).show();
 							break;
 						default:
@@ -103,7 +103,7 @@ public class SettingActivity extends Activity {
 				}).show();
 	}
 	private void setTime() {
-		new AlertDialog.Builder(this).setTitle("设置自动更新频率(/h)").
+		new AlertDialog.Builder(this).setTitle(getString(R.string.set_frequency)).
 		setItems(frequency,new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
@@ -113,31 +113,31 @@ public class SettingActivity extends Activity {
 						case 0:
 							intent.putExtra("frequency", 0.5);
 							Toast.makeText(SettingActivity.this,
-									"后台每半小时更新一次",Toast.LENGTH_SHORT).
+									getString(R.string.half_hour),Toast.LENGTH_SHORT).
 									show();
 							break;
 						case 1:
 							intent.putExtra("frequency", 1.0);
 							Toast.makeText(SettingActivity.this,
-									"后台每一小时更新一次",Toast.LENGTH_SHORT).
+									getString(R.string.one_hour),Toast.LENGTH_SHORT).
 									show();
 							break;
 						case 2:
 							intent.putExtra("frequency", 2.0);
 							Toast.makeText(SettingActivity.this,
-									"后台每两小时更新一次",Toast.LENGTH_SHORT).
+									getString(R.string.two_hours),Toast.LENGTH_SHORT).
 									show();
 							break;
 						case 3:
 							intent.putExtra("frequency", 4.0);
 							Toast.makeText(SettingActivity.this,
-									"后台每四小时更新一次",Toast.LENGTH_SHORT).
+									getString(R.string.four_hours),Toast.LENGTH_SHORT).
 									show();
 							break;
 						case 4:
 							intent.putExtra("frequency", 8.0);
 							Toast.makeText(SettingActivity.this,
-									"后台每八小时更新一次",Toast.LENGTH_SHORT).
+									getString(R.string.four_hours),Toast.LENGTH_SHORT).
 									show();
 							break;
 						default:
@@ -154,11 +154,11 @@ public class SettingActivity extends Activity {
 				}).show();
 	}
 	private void initList() {
-		String autoRefreshing = "自动更新天气";
+		String autoRefreshing = getString(R.string.auto_update);
 		settingList.add(autoRefreshing);
-		String refreshFrequency = "更新频率";
+		String refreshFrequency = getString(R.string.update_frequency);
 		settingList.add(refreshFrequency);
-		String newVersion = "检查新版本";
+		String newVersion = getString(R.string.version_update);
 		settingList.add(newVersion);
 	}
 }

@@ -28,7 +28,7 @@ public class ConcernedCityActivity extends Activity
 				CityCollector.City);
 		listView = (ListView) findViewById(R.id.ciy_item);
 		listView.setAdapter(adapter);
-		Button back  =(Button) findViewById(R.id.backfrom_morecity);
+		Button back  =(Button) findViewById(R.id.back_from_more_city);
 		Button edit = (Button) findViewById(R.id.remove_city);
 		Button add = (Button) findViewById(R.id.add_city);
 		back.setOnClickListener(this);
@@ -51,7 +51,7 @@ public class ConcernedCityActivity extends Activity
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.backfrom_morecity:
+		case R.id.back_from_more_city:
 			Intent intent = new Intent(ConcernedCityActivity.this,
 					WeatherActivity.class);
 			startActivity(intent);

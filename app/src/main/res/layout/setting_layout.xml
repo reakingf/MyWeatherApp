@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:background="#484e61">
+        android:background="@color/gray">
         <Button 
             android:id="@+id/setting_back"
             android:layout_width="30dp"
@@ -21,11 +21,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="@string/setting"
-            android:textColor="#fff"
+            android:textColor="@color/white"
             android:textSize="24sp"/>
     </LinearLayout>
     <ListView 
         android:id="@+id/setting_list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" ></ListView>
+        android:layout_height="wrap_content" >
+    </ListView>
 </LinearLayout>

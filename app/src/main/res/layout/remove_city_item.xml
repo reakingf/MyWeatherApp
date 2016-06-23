@@ -14,7 +14,7 @@
         android:id="@+id/city_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:padding="10dp"
         android:layout_toRightOf="@id/delete"/>
@@ -22,7 +22,7 @@
 	    android:id="@+id/temp_scope"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
-	    android:textColor="#000"
+	    android:textColor="@color/black"
         android:textSize="20sp"
         android:padding="10dp"
 	    android:layout_alignParentRight="true"/>

@@ -7,9 +7,9 @@
     <RelativeLayout 
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#484e61" >
+        android:background="@color/gray" >
         <Button 
-            android:id="@+id/backfrom_morecity"
+            android:id="@+id/back_from_more_city"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"

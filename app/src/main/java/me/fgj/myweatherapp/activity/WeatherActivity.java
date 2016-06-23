@@ -26,7 +26,7 @@ import me.fgj.myweatherapp.util.Utility;
 
 /**
  * @author reakingf
- * 下拉效果有Bug
+ * 下拉效果有bug
  */
 public class WeatherActivity extends Activity implements OnClickListener {
 	private LinearLayout weatherInfoLayout;
